@@ -98,6 +98,7 @@ def end_pointer(angle_joint_1,angle_joint_2,angle_joint_3,angle_joint_4):
     return end_point
 
 def all_end_pointer(number):
+    print('ALL END POINTER')
     #joint 1 rotation y -90,100
     angle_joint_1= np.deg2rad(0)
     #angle_joint_1_max=np.deg2rad(100)
@@ -118,28 +119,35 @@ def all_end_pointer(number):
     end_points=[]
 
     for angle_joint_1 in np.linspace(angle_joint_1_min,angle_joint_1_max,number):
-        print(angle_joint_1)
+        #print(angle_joint_1)
         for angle_joint_2 in np.linspace(angle_joint_2_min, angle_joint_2_max, number):
             for angle_joint_3 in np.linspace(angle_joint_3_min, angle_joint_3_max, number):
                 for angle_joint_4 in np.linspace(angle_joint_4_min, angle_joint_4_max, number):
                     end=end_pointer(angle_joint_1,angle_joint_2,angle_joint_3,angle_joint_4)
-                    print(end)
+                    #print(end)
                     if end[1]>0:end_points.append(end)
-
+    #print(end_points)
 
     return end_points
 
 
 
-def arm():
-    print('The angle should be between',np.rad2deg(angle_joint_1_min),'and',np.rad2deg(angle_joint_1_max),'degrees')
-    angle_joint_1=np.deg2rad(float(input('Angle of the rotating base in degrees')))
-    print('The angle should be between', np.rad2deg(angle_joint_2_min), 'and', np.rad2deg(angle_joint_2_max), 'degrees')
-    angle_joint_2 = np.deg2rad(float(input('Angle of joint 2 in degrees')))
-    print('The angle should be between', np.rad2deg(angle_joint_3_min), 'and', np.rad2deg(angle_joint_3_max), 'degrees')
-    angle_joint_3 = np.deg2rad(float(input('Angle of joint 3 in degrees')))
-    print('The angle should be between', np.rad2deg(angle_joint_4_min), 'and', np.rad2deg(angle_joint_4_max), 'degrees')
-    angle_joint_4 = np.deg2rad(float(input('Angle of joint 4 in degrees')))
+def arm(user):
+    print('ARM PLOTTER')
+    if user==0:
+        angle_joint_1=np.deg2rad(0)
+        angle_joint_2=np.deg2rad(-90)
+        angle_joint_3=np.deg2rad(0)
+        angle_joint_4=np.deg2rad(0)
+    else:
+        print('The angle should be between',np.rad2deg(angle_joint_1_min),'and',np.rad2deg(angle_joint_1_max),'degrees')
+        angle_joint_1=np.deg2rad(float(input('Angle of the rotating base in degrees')))
+        print('The angle should be between', np.rad2deg(angle_joint_2_min), 'and', np.rad2deg(angle_joint_2_max), 'degrees')
+        angle_joint_2 = np.deg2rad(float(input('Angle of joint 2 in degrees')))
+        print('The angle should be between', np.rad2deg(angle_joint_3_min), 'and', np.rad2deg(angle_joint_3_max), 'degrees')
+        angle_joint_3 = np.deg2rad(float(input('Angle of joint 3 in degrees')))
+        print('The angle should be between', np.rad2deg(angle_joint_4_min), 'and', np.rad2deg(angle_joint_4_max), 'degrees')
+        angle_joint_4 = np.deg2rad(float(input('Angle of joint 4 in degrees')))
     start_point =[0,0,0]
 
     #joint_location_3 =
@@ -170,7 +178,7 @@ def arm():
     print(joint_location_3,'joint 3')
     print(joint_location_4,'joint 4')
     print(joint_location_5,'joint 5')
-    print(joint_location_5,'end_point')
+    print(end_point,'end_point')
     #link_points_1=[]
     #link_point_1=start_point
     #link_1_d=[ (j-i)/100  for i, j in zip(start_point, joint_location_1)]
@@ -206,23 +214,65 @@ def plotter(end_points):
 
     # Scatter plot the points
     ax.scatter(x, z, y, c='r', marker='o')
-    i=0
-    while i<6:
-        ax.plot([x[i], x[i+1]], [z[i],z[i+1]], [y[i],y[i+1]], c='b', linestyle='-', linewidth=2)
-        i=i+1
+    if len(end_points)<9:
+        i=0
+        while i<6:
+            ax.plot([x[i], x[i+1]], [z[i],z[i+1]], [y[i],y[i+1]], c='b', linestyle='-', linewidth=2)
+            i=i+1
+
 
 
     # Set labels for the axes
     ax.set_xlabel('X-axis')
     ax.set_ylabel('Z-axis')
     ax.set_zlabel('Y-axis')
+    graph_to_scale=1   # set to 1 if has to be in scale
+    if graph_to_scale==1:
+        x_range = max(x) - min(x)
+        y_range = max(y) - min(y)
+        z_range = max(z) - min(z)
+        max_range = max(x_range, y_range, z_range)
+        ax.set_xlim([min(x), min(x) + max_range])
+        ax.set_ylim([min(z), min(z) + max_range])
+        ax.set_zlim([min(y), min(y) + max_range])
 
-    # Show the plot
+    plt.show()
+    return 0
+
+def Workspace2D(number):
+    # joint 1 rotation y -90,100
+    angle_joint_1 = np.deg2rad(0)
+    # angle_joint_1_max=np.deg2rad(100)
+    # angle_joint_1_min=np.deg2rad(-90)
+    # joint 2 rotation z -90,38
+    angle_joint_2 = np.deg2rad(-90)
+    # angle_joint_2_max=np.deg2rad(38)
+    # angle_joint_2_min=np.deg2rad(-90)
+    # joint 3 rotation z -150, 0
+    angle_joint_3 = np.deg2rad(0)
+    # angle_joint_3_max=np.deg2rad(0)
+    # angle_joint_3_min=np.deg2rad(-150)
+    # joint 4 rotation z -90,90
+    angle_joint_4 = np.deg2rad(0)
+    # angle_joint_4_max=np.deg2rad(90)
+    # angle_joint_4_min=np.deg2rad(-90)
+    end_points = [end_pointer(angle_joint_1, angle_joint_2, angle_joint_3, angle_joint_4)]
+    end_points = []
+    xp=[]
+    yp=[]
+    for angle_joint_2 in np.linspace(angle_joint_2_min, angle_joint_2_max, number):
+        for angle_joint_3 in np.linspace(angle_joint_3_min, angle_joint_3_max, number):
+            for angle_joint_4 in np.linspace(angle_joint_4_min, angle_joint_4_max, number):
+                end = end_pointer(angle_joint_1, angle_joint_2, angle_joint_3, angle_joint_4)
+                #print(end)
+                if end[1] > 0:
+                    end_points.append(end)
+                    xp=np.append(xp,end[0])
+                    yp = np.append(yp, end[1])
+                    #print(end_points)
+
+    plt.scatter(xp,yp)
     plt.show()
     return 0
 
 
-
-
-#plotter(arm())
-#plotter(all_end_pointer(10))
