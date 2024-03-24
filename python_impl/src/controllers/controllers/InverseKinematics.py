@@ -174,4 +174,4 @@ def inverse_plotter(angles):
     plotter(points)
     return 0
 
-IK([5,3,2])
+IK([100,100,100])

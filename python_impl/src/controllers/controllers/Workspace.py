@@ -7,11 +7,11 @@ from matplotlib import pyplot as plt
 
 
 
-link_length_1=30
-link_length_2=50
-link_length_3=115
-link_length_4=132
-link_length_5=75
+link_length_1=60 #height of the base
+link_length_2=20 #between base and joint 2
+link_length_3=95 #between joint 2 and 3
+link_length_4=105 #between joint 3 and 4
+link_length_5=90 #between joint 4 and end effector
 length_joint_end=35
 angle_joint_1_max=np.deg2rad(100)
 angle_joint_1_min=np.deg2rad(-90)
@@ -276,3 +276,6 @@ def Workspace2D(number):
     return 0
 
 
+# end_points = end_pointer(0,0,0,0)
+# print(end_points)
+# plotter([0,437,0])
