@@ -203,10 +203,12 @@ def arm(user):
 
 def plotter(end_points):
 
-    # Extract x, y, and z coordinates from the points
+    #Extract x, y, and z coordinates from the points
     x = [point[0] for point in end_points]
     y = [point[1] for point in end_points]
     z = [point[2] for point in end_points]
+
+    #x, y, z = end_points[0], end_points[1], end_points[2]
 
     # Create a 3D plot
     fig = plt.figure()
@@ -278,4 +280,3 @@ def Workspace2D(number):
 
 # end_points = end_pointer(0,0,0,0)
 # print(end_points)
-# plotter([0,437,0])
