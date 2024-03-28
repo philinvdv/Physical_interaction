@@ -8,31 +8,31 @@ def Jacobian(theta_1, theta_2, theta_3, theta_4):
     L_4 = link_length_4
     L_5 = link_length_5
 
-    J_11 = L_5 * np.sin(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.cos(theta_4) - L_5 * np.sin(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.cos(theta_4) - L_5 * np.sin(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - L_5 * np.sin(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.sin(theta_4) + \
+    J_11 = -(L_5 * np.sin(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.cos(theta_4) - L_5 * np.sin(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.cos(theta_4) - L_5 * np.sin(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - L_5 * np.sin(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.sin(theta_4) + \
         L_4 * np.sin(theta_1) * np.cos(theta_2) * np.cos(theta_3) - L_4 * np.sin(theta_1) * np.sin(theta_2) * np.sin(theta_3) +\
-        L_3 * np.sin(theta_1) * np.cos(theta_2)
+        L_3 * np.sin(theta_1) * np.cos(theta_2))
 
-    J_12 = L_5 * (np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) - np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.sin(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4)) +\
+    J_12 = -(L_5 * (np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) - np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.sin(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4)) +\
         L_4 * (np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) + np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3)) +\
-        L_3 * np.cos(theta_1) * np.sin(theta_2)
+        L_3 * np.cos(theta_1) * np.sin(theta_2))
 
-    J_13 = L_5 * (np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) - np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) - np.cos(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4)) +\
-        L_4 * (np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3))
+    J_13 = -(L_5 * (np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) - np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) - np.cos(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4)) +\
+        L_4 * (np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3)))
 
-    J_14 = L_5 * (np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - np.cos(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4))
+    J_14 = -(L_5 * (np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - np.cos(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4)))
 
-    J_21 = L_5 * (-np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.sin(theta_4)) +\
+    J_21 = -(L_5 * (-np.cos(theta_1) * np.cos(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.cos(theta_1) * np.cos(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_1) * np.sin(theta_2) * np.cos(theta_3) * np.sin(theta_4)) +\
         L_4 * np.cos(theta_1) * (-np.cos(theta_2) * np.cos(theta_3) + np.sin(theta_2) * np.sin(theta_3)) +\
-        L_3 * -np.cos(theta_1) * np.cos(theta_2)
+        L_3 * -np.cos(theta_1) * np.cos(theta_2))
 
-    J_22 = L_5 * np.sin(theta_1) * (np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) - np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4)) +\
+    J_22 = -(L_5 * np.sin(theta_1) * (np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) - np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4)) +\
         L_4 * np.sin(theta_1) * (np.sin(theta_2) * np.cos(theta_3) + np.cos(theta_2) * np.sin(theta_3)) +\
-        L_3 * np.sin(theta_1) * np.sin(theta_2)
+        L_3 * np.sin(theta_1) * np.sin(theta_2))
 
-    J_23 = L_5 * np.sin(theta_1) * (np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4)) +\
-        L_4 * np.sin(theta_1) * (np.cos(theta_2) * np.sin(theta_3) + np.sin(theta_2) * np.cos(theta_3))
+    J_23 = -(L_5 * np.sin(theta_1) * (np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4) + np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4)) +\
+        L_4 * np.sin(theta_1) * (np.cos(theta_2) * np.sin(theta_3) + np.sin(theta_2) * np.cos(theta_3)))
 
-    J_24 = L_5 * np.sin(theta_1) * (np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4))
+    J_24 = -( L_5 * np.sin(theta_1) * (np.cos(theta_2) * np.cos(theta_3) * np.sin(theta_4) - np.sin(theta_2) * np.sin(theta_3) * np.sin(theta_4) + np.cos(theta_2) * np.sin(theta_3) * np.cos(theta_4) + np.sin(theta_2) * np.cos(theta_3) * np.cos(theta_4)))
 
     J_31 = 0
 
@@ -68,4 +68,8 @@ def Inverse_Jacobian(J): #J is not inversible, so use Moore–Penrose inverse,
 
 J = Jacobian(np.pi, np.pi/2, np.pi/4, np.pi/3)
 print('this is the jacobian',J)
-print('this is the inverse', Inverse_Jacobian(J))
+
+v = np.array([[3],[0],[0],[0],[0],[0]])
+q = np.matmul(Inverse_Jacobian(J),v)
+
+#print(q)
