@@ -9,9 +9,9 @@ import time
 
 class ExampleTraj(Node):
 
-    def _init_(self):
+    def __init__(self):
 
-        super()._init_('minimal_publisher')
+        super().__init__('minimal_publisher')
 
         self._HOME = [np.deg2rad(0), np.deg2rad(0),
                       np.deg2rad(0), np.deg2rad(0), 0.0]
