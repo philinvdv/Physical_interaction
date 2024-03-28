@@ -76,6 +76,6 @@ def IK(test_point):
     return angle_1[0], theta_1, theta_2, theta_3
 
 
-IK([100,100,100])
+#IK([100,100,100])
 #IK([0,300,0])
-#IK([200, 300, 100])
+IK([200, 300, 100])
