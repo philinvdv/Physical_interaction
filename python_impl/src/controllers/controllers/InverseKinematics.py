@@ -20,7 +20,7 @@ def IK(test_point):
     y_end = test_point[1] - link_length_1 - link_length_2
     z_end = test_point[2]
 
-    distance = np.sqrt(x_end * 2 + y_end2 + z_end * 2)
+    distance = np.sqrt(x_end ** 2 + y_end**2 + z_end ** 2)
     sums = link_length_1 + link_length_2 + link_length_3 + link_length_4 + link_length_5
     print(distance, sums)
     if distance > link_length_1 + link_length_2 + link_length_3 + link_length_4 + link_length_5:
@@ -41,9 +41,9 @@ def IK(test_point):
         xz_5 = xz - (link_length_5 + length_joint_end) * np.cos(orientation)
         y_5 = y_end - (link_length_5 + length_joint_end) * np.sin(orientation)
 
-        alpha = np.arccos((xz_5 * 2 + y_52 - link_length_32 - link_length_4 * 2) / (2 * link_length_3 * link_length_4))
+        alpha = np.arccos((xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
         # alpha = np.pi - alpha
-        print('alpha', (xz_5 * 2 + y_52 - link_length_32 - link_length_4 * 2) / (2 * link_length_3 * link_length_4))
+        print('alpha', (xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
         beta = np.arcsin((link_length_4 * np.sin(alpha)) / (np.sqrt(xz_5 * 2 + y_5 * 2)))
 
         elbow = 1  # -1 if down, 1 if up
