@@ -40,11 +40,16 @@ def IK(test_point):
         orientation = i
         xz_5 = xz - (link_length_5 + length_joint_end) * np.cos(orientation)
         y_5 = y_end - (link_length_5 + length_joint_end) * np.sin(orientation)
+        #print('xz:', xz_5)
+        #print('y_5:', y_5)
 
-        alpha = np.arccos((xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
+        #print('this is in the cos', (xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
+        #alpha = np.arccos((xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
+        alpha = np.arccos(
+           (xz_5 ** 2 + y_5 ** 2 - link_length_3 ** 2 - link_length_4 ** 2) / (2 * xz_5 * y_5))
         # alpha = np.pi - alpha
-        print('alpha', (xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
-        beta = np.arcsin((link_length_4 * np.sin(alpha)) / (np.sqrt(xz_5 * 2 + y_5 * 2)))
+        #print('alpha', (xz_5 ** 2 + y_5**2 - link_length_3**2 - link_length_4 ** 2) / (2 * link_length_3 * link_length_4))
+        beta = np.arcsin((link_length_4 * np.sin(alpha)) / (np.sqrt(xz_5 ** 2 + y_5 ** 2)))
 
         elbow = 1  # -1 if down, 1 if up
 
@@ -71,6 +76,6 @@ def IK(test_point):
     return angle_1[0], theta_1, theta_2, theta_3
 
 
-# IK([100,100,100])
-# IK([0,300,0])
-IK([200, 300, 100])
+IK([100,100,100])
+#IK([0,300,0])
+#IK([200, 300, 100])
